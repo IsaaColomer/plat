@@ -8,12 +8,15 @@ public class CharacterMovement : MonoBehaviour
     public float speed;     
     public float jumpF;     
     [SerializeField] private Vector3 movement;
+    [SerializeField] GameObject capsule;
     [SerializeField] private float xDir;
+    [SerializeField] private float yVel;
     [SerializeField] private bool canJump = true;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        capsule = GameObject.FindGameObjectWithTag("FloorCol");
         canJump = true;
     }
 
@@ -21,23 +24,41 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         xDir = Input.GetAxis("Horizontal")*speed;
-
-    }
-    void FixedUpdate() 
-    {
-        rb.velocity = new Vector2(xDir*Time.deltaTime, rb.velocity.y); 
+        if(rb.velocity.y <= 0f && rb.velocity.y >= -0.1f)
+        {
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
+        }
         if(Input.GetButtonDown("Jump") && canJump)
         {
             rb.AddForce(new Vector2(0f, jumpF));
-            Debug.Log("Jump");
         }
+        yVel = rb.velocity.y;
     }
-    void OnCollisionEnter2D(Collision2D other)
+    void FixedUpdate() 
     {
-        canJump = true;
+        rb.velocity = new Vector2(xDir*Time.deltaTime, rb.velocity.y);        
     }
-    void OnCollisionExit2D(Collision2D other) 
-    {
-        canJump = false;
-    }
+    // void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if(other.collider == capsule.GetComponent<CapsuleCollider2D>())
+    //     {
+    //         canJump = true;
+    //     }
+    // }
+    // void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if(other.collider == capsule.GetComponent<CapsuleCollider2D>())
+    //     {
+    //         canJump = true;
+    //     }
+    // }
+    
+    // void OnCollisionExit2D(Collision2D other) 
+    // {
+    //     canJump = false;
+    // }
 }
