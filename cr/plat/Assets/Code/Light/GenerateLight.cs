@@ -17,8 +17,21 @@ public class GenerateLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAroundLocal(new Vector3(0,0,1), Time.deltaTime);
+        transform.RotateAroundLocal(transform.forward, Time.deltaTime);
+
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position, transform.up*maxDistance, out hit, maxDistance))
+        {
+            if(hit.collider.tag == "Platforms")
+            {
+                Debug.Log("Platforms");
+            }
+            else
+            {
+                Debug.Log("Not platform, name: " + hit.collider.tag.ToString());
+            }
+        }
         lr.SetPosition(0,transform.position);
-        lr.SetPosition(1,transform.right*5);
+        lr.SetPosition(1,transform.up*maxDistance);
     }
 }
