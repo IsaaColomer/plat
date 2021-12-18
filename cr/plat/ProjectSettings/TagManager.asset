@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FloorCol
   - Platforms
+  - PlatManager
   layers:
   - Default
   - TransparentFX
