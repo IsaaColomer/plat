@@ -12,9 +12,11 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float xDir;
     [SerializeField] private float yVel;
     [SerializeField] private bool canJump = true;
+    [SerializeField] private Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         capsule = GetComponent<BoxCollider2D>();
         canJump = true;
@@ -23,6 +25,11 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.R))
+        {
+            transform.position = startPos;
+            rb.velocity = Vector2.zero;
+        }
         xDir = Input.GetAxis("Horizontal")*speed;
         if(Input.GetButtonDown("Jump") && canJump)
         {
