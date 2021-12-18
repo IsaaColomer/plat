@@ -24,19 +24,11 @@ public class GenerateLight : MonoBehaviour
         {
             if(hit.collider.tag.ToString() == "Platforms")
             {
-                hit.collider.GetComponent<Collider2D>().enabled = true;
+                //GameObject.FindGameObjectWithTag("PlatManager").GetComponent<PlatformManager>().tilesColliding.
             }
             else
             {
-                if(hit.collider.tag.ToString() != "Platforms")
-                {
-                    hit.collider.GetComponent<Collider2D>().enabled = true;
-                }
-                else
-                {
-                    hit.collider.GetComponent<Collider2D>().enabled = false;
-                }
-
+               
             }
         }
         lr.SetPosition(0,transform.position);
