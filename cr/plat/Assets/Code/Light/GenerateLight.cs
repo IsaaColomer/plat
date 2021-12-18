@@ -19,10 +19,10 @@ public class GenerateLight : MonoBehaviour
     {
         transform.RotateAroundLocal(transform.forward, Time.deltaTime);
 
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.up*maxDistance, out hit, maxDistance))
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up*maxDistance,10f);
+        if(hit)
         {
-            if(hit.collider.tag == "Platforms")
+            if(hit.collider.tag.ToString() == "Platforms")
             {
                 Debug.Log("Platforms");
             }
