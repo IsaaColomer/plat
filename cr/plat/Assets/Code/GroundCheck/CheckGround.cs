@@ -49,13 +49,8 @@ public class CheckGround : MonoBehaviour
     {
         if(other.collider == playerBoxCollider2D.GetComponent<BoxCollider2D>())
         {
-            Debug.Log("a");
             playerCanJump.GetComponent<CharacterMovement>().canJump = false;
             playerCanJump.GetComponent<CharacterMovement>().onAir = true;  
-        }
-        else
-        {
-            Debug.Log("Else"); 
         }
     }
 }
