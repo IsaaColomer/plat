@@ -8,14 +8,16 @@ TagManager:
   - Platforms
   - PlatManager
   - Light
+  - Points
+  - Patroller
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - P
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
