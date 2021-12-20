@@ -28,14 +28,14 @@ public class EachPlatform : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Light")
+        if(other.tag == "Light" ||other.tag == "Orb")
         {
             GetComponent<BoxCollider2D>().enabled = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other) 
     {
-        if(other.tag == "Light")
+        if(other.tag == "Light" || other.tag == "Orb")
         {
             GetComponent<BoxCollider2D>().enabled = false;
         }

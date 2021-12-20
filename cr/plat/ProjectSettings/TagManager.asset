@@ -10,6 +10,7 @@ TagManager:
   - Light
   - Points
   - Patroller
+  - Orb
   layers:
   - Default
   - TransparentFX
