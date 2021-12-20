@@ -5,12 +5,11 @@ using UnityEngine;
 public class GenerateOrbs : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]private float timer1 = 1.5f;
+    public float timer1 = 1.5f;
     [SerializeField]private float timer2;
     public GameObject orbPrefab;
     void Start()
     {
-        timer1 = 1.5f;
         timer2 = timer1;
     }
 

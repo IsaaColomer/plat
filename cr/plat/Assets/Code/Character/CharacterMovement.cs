@@ -11,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public float jumpF;     
     public float reduce;
     [SerializeField] private Vector3 movement;
+    [SerializeField] private Animator anim;
     [SerializeField] BoxCollider2D capsule;
     [SerializeField] CapsuleCollider2D capsuleCol;
     [SerializeField] private float xDir;
@@ -25,6 +26,7 @@ public class CharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         capsule = GetComponent<BoxCollider2D>();
         capsuleCol = GetComponent<CapsuleCollider2D>();
+        anim = GetComponent<Animator>();
         canJump = true;
         onAir = false;
         startSpeed = speed;
@@ -51,6 +53,14 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             speed =  startSpeed;
+        }
+        if(xDir == 0)
+        {
+            anim.Play("idle");
+        }
+        if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D))
+        {
+            anim.Play("running");
         }
         yVel = rb.velocity.y;
     }
