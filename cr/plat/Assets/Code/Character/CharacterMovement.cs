@@ -56,50 +56,47 @@ public class CharacterMovement : MonoBehaviour
         {
             speed =  startSpeed;
         }
-        if(xDir == 0)
+        if(xDir == 0 && !onAir)
         {
             anim.Play("idle");
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) && !onAir)
+        {
+            r.flipX = false;           
+            anim.Play("running");
+        }
+        if(Input.GetKey(KeyCode.D) && onAir)
         {
             r.flipX = false;
-            if(onAir && rb.velocity.y > 0)
+            if(rb.velocity.y >0f)
             {
                 anim.Play("jump");
             }
-            else
-            {
-                anim.Play("running");
-            }
-            if(onAir && rb.velocity.y < 0)
+            if(rb.velocity.y < 0f)
             {
                 anim.Play("fall");
             }
-            else
-            {
-                anim.Play("running");
-            }
-
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) && !onAir)
         {
             r.flipX = true;
-            if(onAir && rb.velocity.y > 0)
+            anim.Play("running");
+        }
+        if(Input.GetKey(KeyCode.A) && onAir)
+        {
+            r.flipX = true;
+            if(rb.velocity.y >0f)
             {
                 anim.Play("jump");
             }
-            else
-            {
-                anim.Play("running");
-            }
-            if(onAir && rb.velocity.y < 0)
+            if(rb.velocity.y < 0f)
             {
                 anim.Play("fall");
             }
-            else
-            {
-                anim.Play("running");
-            }
+        }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            anim.Play("jump");
         }
         if(onAir && rb.velocity.y > 0)
         {
