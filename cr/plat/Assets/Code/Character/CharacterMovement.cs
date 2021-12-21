@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float speed;     
     [SerializeField] private float spee;
+    [SerializeField] private SpriteRenderer r;
     [SerializeField] private float startSpeed;     
     public float jumpF;     
     public float reduce;
@@ -27,6 +28,7 @@ public class CharacterMovement : MonoBehaviour
         capsule = GetComponent<BoxCollider2D>();
         capsuleCol = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
+        r = GetComponent<SpriteRenderer>();
         canJump = true;
         onAir = false;
         startSpeed = speed;
@@ -58,9 +60,54 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.Play("idle");
         }
-        if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D))
         {
-            anim.Play("running");
+            r.flipX = false;
+            if(onAir && rb.velocity.y > 0)
+            {
+                anim.Play("jump");
+            }
+            else
+            {
+                anim.Play("running");
+            }
+            if(onAir && rb.velocity.y < 0)
+            {
+                anim.Play("fall");
+            }
+            else
+            {
+                anim.Play("running");
+            }
+
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+            r.flipX = true;
+            if(onAir && rb.velocity.y > 0)
+            {
+                anim.Play("jump");
+            }
+            else
+            {
+                anim.Play("running");
+            }
+            if(onAir && rb.velocity.y < 0)
+            {
+                anim.Play("fall");
+            }
+            else
+            {
+                anim.Play("running");
+            }
+        }
+        if(onAir && rb.velocity.y > 0)
+        {
+            anim.Play("jump");
+        }
+        if(onAir && rb.velocity.y < 0)
+        {
+            anim.Play("fall");
         }
         yVel = rb.velocity.y;
     }
