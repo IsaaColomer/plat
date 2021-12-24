@@ -18,7 +18,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float xDir;
     [SerializeField] private float yVel;
     [SerializeField] public bool canJump = true;
-    [SerializeField] private Vector3 startPos;
+    [SerializeField] public Vector3 startPos;
     [SerializeField] public bool onAir;
     // Start is called before the first frame update
     void Start()
@@ -96,7 +96,8 @@ public class CharacterMovement : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.Space))
         {
-            anim.Play("jump");
+            if(!onAir)
+                anim.Play("jump");
         }
         if(onAir && rb.velocity.y > 0)
         {
@@ -111,5 +112,12 @@ public class CharacterMovement : MonoBehaviour
     void FixedUpdate() 
     {
         rb.velocity = new Vector2(xDir*Time.deltaTime, rb.velocity.y);        
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "CheckPoint")
+        {
+            startPos = other.transform.position;
+        }
     }
 }

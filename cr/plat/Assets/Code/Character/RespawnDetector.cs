@@ -23,7 +23,7 @@ public class RespawnDetector : MonoBehaviour
         if(other.tag.ToString() == "Respawn")
         {
             rb.velocity = Vector3.zero;
-            transform.position = startPos;
+            transform.position = GetComponent<CharacterMovement>().startPos;
         }    
     }
 }
