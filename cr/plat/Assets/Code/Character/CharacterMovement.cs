@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float spee;
     [SerializeField] private SpriteRenderer r;
     [SerializeField] private float startSpeed;     
+    [SerializeField] private float jumpF2;
+    [SerializeField] private float jumpFstart;
     public float jumpF;     
     public float reduce;
     [SerializeField] private Vector3 movement;
@@ -33,6 +35,8 @@ public class CharacterMovement : MonoBehaviour
         onAir = false;
         startSpeed = speed;
         spee = speed/reduce;
+        jumpF2 = jumpF*1.5f;
+        jumpFstart = jumpF;
     }
 
     // Update is called once per frame
@@ -47,6 +51,8 @@ public class CharacterMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && canJump)
         {
             rb.AddForce(new Vector2(0f, jumpF));
+            if(!onAir)
+                anim.Play("jump");
         }
         if(onAir)
         {
@@ -94,10 +100,9 @@ public class CharacterMovement : MonoBehaviour
                 anim.Play("fall");
             }
         }
-        if(Input.GetKey(KeyCode.Space))
+        if(rb.velocity.y == 0)
         {
-            if(!onAir)
-                anim.Play("jump");
+            jumpF = jumpFstart;
         }
         if(onAir && rb.velocity.y > 0)
         {
@@ -118,6 +123,23 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "CheckPoint")
         {
             startPos = other.transform.position;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D other) 
+    {
+        if(other.transform.tag == "Moving")
+        {
+            onAir = false;
+            canJump = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other) 
+    {
+        if(other.transform.tag == "Moving")
+        {
+            rb.AddForce(new Vector2(0f, 2000));
+            onAir = true;
+            canJump = false;
         }
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Patroller
   - Orb
   - CheckPoint
+  - Moving
   layers:
   - Default
   - TransparentFX
