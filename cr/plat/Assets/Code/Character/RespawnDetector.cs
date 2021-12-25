@@ -24,6 +24,7 @@ public class RespawnDetector : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             transform.position = GetComponent<CharacterMovement>().startPos;
+            GetComponent<PlayerHealth>().TakeDamage();
         }    
     }
 }

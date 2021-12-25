@@ -15,6 +15,9 @@ TagManager:
   - Moving
   - Trap
   - Ground
+  - Start
+  - Plus
+  - Image
   layers:
   - Default
   - TransparentFX

@@ -137,6 +137,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if(other.transform.tag == "Trap")
         {
+            GetComponent<PlayerHealth>().TakeDamage();
             transform.position = startPos;
         }
     }
