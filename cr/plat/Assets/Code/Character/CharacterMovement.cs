@@ -123,7 +123,7 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "CheckPoint")
         {
             startPos = other.transform.position;
-        }
+        }        
     }
     private void OnCollisionStay2D(Collision2D other) 
     {
@@ -131,6 +131,13 @@ public class CharacterMovement : MonoBehaviour
         {
             onAir = false;
             canJump = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.transform.tag == "Trap")
+        {
+            transform.position = startPos;
         }
     }
     private void OnCollisionExit2D(Collision2D other) 

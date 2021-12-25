@@ -13,6 +13,7 @@ TagManager:
   - Orb
   - CheckPoint
   - Moving
+  - Trap
   layers:
   - Default
   - TransparentFX
