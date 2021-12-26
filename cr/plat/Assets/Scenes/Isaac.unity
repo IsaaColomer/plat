@@ -1717,8 +1717,8 @@ MonoBehaviour:
   startSpeed: 0
   jumpF2: 0
   jumpFstart: 0
-  jumpF: 6500
-  reduce: 1.5
+  jumpF: 7000
+  reduce: 1.45
   movement: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   capsule: {fileID: 0}

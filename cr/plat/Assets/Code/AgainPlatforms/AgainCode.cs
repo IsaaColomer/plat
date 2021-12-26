@@ -18,10 +18,10 @@ public class AgainCode : MonoBehaviour
     {
         r = GetComponent<SpriteRenderer>();
         b = GetComponent<BoxCollider2D>();
-        t1 = 1f;
-        t3 = 1f;
-        t2 = 1f;
-        t4 = 1f;
+        t1 = 0f;
+        t3 = 0f;
+        t2 = 0f;
+        t4 = 0f;
         color = r.color;
     }
 
@@ -35,8 +35,8 @@ public class AgainCode : MonoBehaviour
         if(!b.enabled)
         {
             r.color = color/10;
-            t3-=Time.smoothDeltaTime;
-            if(t3<= 0)
+            t3+=Time.deltaTime;
+            if(t3>= 1f)
             {
                 b.enabled = true;
                 t1 = t2;
@@ -54,6 +54,7 @@ public class AgainCode : MonoBehaviour
         {
             startCount = true;
         }
+        Debug.Log($"{Time.deltaTime} vs. {Time.fixedDeltaTime}");
     }
     private void OnCollisionExit2D(Collision2D other) 
     {
@@ -65,20 +66,19 @@ public class AgainCode : MonoBehaviour
     }
     void Count()
     {
-        if(t1 <= 0)
+        if(t1 >= 1f)
         {
             startSecondCount = true;
             b.enabled =  false;
         }
         else
         {            
-            t1-=Time.smoothDeltaTime;
+            t1+=Time.deltaTime;
         }
 
         if(startSecondCount)
         {
-            b.enabled = false;
-            
+            b.enabled = false;            
         }
     }
 }
