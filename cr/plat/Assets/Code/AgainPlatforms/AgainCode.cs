@@ -35,7 +35,7 @@ public class AgainCode : MonoBehaviour
         if(!b.enabled)
         {
             r.color = color/10;
-            t3-=Time.deltaTime;
+            t3-=Time.smoothDeltaTime;
             if(t3<= 0)
             {
                 b.enabled = true;
@@ -50,14 +50,14 @@ public class AgainCode : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other) 
     {
-        if(other.transform.tag == "Player")
+        if(other.collider == GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>())
         {
             startCount = true;
         }
     }
     private void OnCollisionExit2D(Collision2D other) 
     {
-        if(other.transform.tag == "Player")
+        if(other.collider == GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider2D>())
         {
             startCount = false;
             b.enabled = true;
@@ -72,7 +72,7 @@ public class AgainCode : MonoBehaviour
         }
         else
         {            
-            t1-=Time.deltaTime;
+            t1-=Time.smoothDeltaTime;
         }
 
         if(startSecondCount)
