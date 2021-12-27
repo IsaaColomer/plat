@@ -123,7 +123,20 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "CheckPoint")
         {
             startPos = other.transform.position;
+        }
+        if(other.tag == "Double")
+        {
+            canJump = true;
+            jumpF = jumpF2;
         }        
+    }
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        if(other.tag == "Double")
+        {
+            canJump = false;
+            jumpF = jumpFstart;
+        }    
     }
     private void OnCollisionStay2D(Collision2D other) 
     {

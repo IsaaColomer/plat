@@ -20,6 +20,7 @@ TagManager:
   - Image
   - Fruits
   - Ignore
+  - Double
   layers:
   - Default
   - TransparentFX
