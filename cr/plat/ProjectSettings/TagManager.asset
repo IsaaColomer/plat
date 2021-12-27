@@ -19,6 +19,7 @@ TagManager:
   - Plus
   - Image
   - Fruits
+  - Ignore
   layers:
   - Default
   - TransparentFX
