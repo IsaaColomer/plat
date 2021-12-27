@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         start = GameObject.FindGameObjectWithTag("Start").transform;
-        life = 3;
+        life = 1;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void AddLife()
     {
-        if((life >= 3))
+        if((life >= 1))
         {
             Debug.Log("Max life already reached");
         }
@@ -40,8 +40,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if(life <= 0)
         {
-            transform.position = start.position;
-            life = 3;
+            transform.position = GetComponent<CharacterMovement>().startPos;
+            life = 1;
             Debug.Log("Restarted");
         }
     }

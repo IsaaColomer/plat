@@ -46,7 +46,7 @@ public class TrapCode : MonoBehaviour
         if(other.transform.tag == "Player")
         {
             Debug.Log("Damage!");
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().life--;
             GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
         }
     }
