@@ -42,4 +42,12 @@ public class TrapCode : MonoBehaviour
             GetComponent<CircleCollider2D>().enabled = false;
         }
     }
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.transform.tag == "Player")
+        {
+            Debug.Log("Damage!");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage();
+            GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
+        }
+    }
 }

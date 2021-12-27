@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    public BoxCollider2D col;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,19 +16,11 @@ public class Collision : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        if(other.transform.tag == "Trap")
-        {
-            GetComponent<PlayerHealth>().TakeDamage();
-            transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "CheckPoint")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos = other.transform.position;
+            GetComponent<CharacterMovement>().startPos = other.transform.position;
         }        
     }
 }
