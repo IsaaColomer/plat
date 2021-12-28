@@ -5,10 +5,12 @@ using UnityEngine;
 public class LightSquare : MonoBehaviour
 {
     public float speed=2;
+    public Transform maxim;
+    [SerializeField] public Vector3 sP;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sP = transform.position;
     }
 
     // Update is called once per frame
@@ -22,6 +24,10 @@ public class LightSquare : MonoBehaviour
         if(other.tag == "Player")
         {
             transform.position += new Vector3(Time.deltaTime*speed,0f,0f);
+        }
+        if(other.tag == "Stop")
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }

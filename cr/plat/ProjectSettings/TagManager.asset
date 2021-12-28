@@ -21,6 +21,8 @@ TagManager:
   - Fruits
   - Ignore
   - Double
+  - Lq
+  - Stop
   layers:
   - Default
   - TransparentFX

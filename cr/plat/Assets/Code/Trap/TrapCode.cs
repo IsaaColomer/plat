@@ -30,14 +30,14 @@ public class TrapCode : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Light" ||other.tag == "Orb")
+        if(other.tag == "Light" ||other.tag == "Orb" || other.tag == "Lq")
         {
             GetComponent<CircleCollider2D>().enabled = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other) 
     {
-        if(other.tag == "Light" || other.tag == "Orb")
+        if(other.tag == "Light" || other.tag == "Orb" || other.tag == "Lq")
         {
             GetComponent<CircleCollider2D>().enabled = false;
         }
@@ -47,6 +47,8 @@ public class TrapCode : MonoBehaviour
         {
             Debug.Log("Damage!");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().life--;
+            GameObject.FindGameObjectWithTag("Lq").transform.position = GameObject.FindGameObjectWithTag("Lq").GetComponent<LightSquare>().sP;
+
             GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
         }
     }
