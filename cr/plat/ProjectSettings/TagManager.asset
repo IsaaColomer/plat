@@ -23,6 +23,8 @@ TagManager:
   - Double
   - Lq
   - Stop
+  - b
+  - r
   layers:
   - Default
   - TransparentFX

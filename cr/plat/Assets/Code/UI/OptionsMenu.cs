@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour
 {    
@@ -9,6 +10,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject audioS;
     public GameObject videosS;
     public GameObject creditsS;
+    public GameObject resumeS;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(true);
         videosS.SetActive(false);
         creditsS.SetActive(false);
+        resumeS.SetActive(true);
     }
 
     // Update is called once per frame
@@ -32,6 +35,14 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(true);
         videosS.SetActive(false);
         creditsS.SetActive(false);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            resumeS.SetActive(true);
+        }
+        else
+        {
+            resumeS.SetActive(true);
+        }
     }
     public void BackClick()
     {
@@ -40,8 +51,17 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(false);
         videosS.SetActive(false);
         creditsS.SetActive(false);
+        resumeS.SetActive(false);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            resumeS.SetActive(true);
+        }
+        else
+        {
+            resumeS.SetActive(true);
+        }
+        Time.timeScale = 1;
     }
-
     public void VideoClick()
     {
         optionsS.SetActive(true);
@@ -49,6 +69,15 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(true);
         videosS.SetActive(true);
         creditsS.SetActive(false);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            resumeS.SetActive(true);
+        }
+        else
+        {
+            resumeS.SetActive(true);
+        }
+        
     }
     public void CreditsClick()
     {
@@ -57,5 +86,23 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(true);
         videosS.SetActive(false);
         creditsS.SetActive(true);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            resumeS.SetActive(true);
+        }
+        else
+        {
+            resumeS.SetActive(true);
+        }
+    }
+    public void ResumeClick()
+    {
+        optionsS.SetActive(false);
+        audioS.SetActive(false);
+        backS.SetActive(false);
+        videosS.SetActive(false);
+        creditsS.SetActive(false);
+        resumeS.SetActive(false);
+        Time.timeScale = 1;
     }
 }
