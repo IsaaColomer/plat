@@ -20,7 +20,7 @@ public class CheckGround : MonoBehaviour
     }
     void OnCollisionStay2D(Collision2D other)
     {
-        if(other.collider == playerBoxCollider2D.GetComponent<BoxCollider2D>())
+        if(other.collider == playerBoxCollider2D.GetComponent<CircleCollider2D>())
         {
             playerCanJump.GetComponent<CharacterMovement>().canJump = true;
             playerCanJump.GetComponent<CharacterMovement>().onAir = false;
@@ -34,7 +34,7 @@ public class CheckGround : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {    
-        if(other.collider == playerBoxCollider2D.GetComponent<BoxCollider2D>())
+        if(other.collider == playerBoxCollider2D.GetComponent<CircleCollider2D>())
         {
             playerCanJump.GetComponent<CharacterMovement>().canJump = true;
             playerCanJump.GetComponent<CharacterMovement>().onAir = false;
@@ -47,7 +47,7 @@ public class CheckGround : MonoBehaviour
     }    
     void OnCollisionExit2D(Collision2D other) 
     {
-        if(other.collider == playerBoxCollider2D.GetComponent<BoxCollider2D>())
+        if(other.collider == playerBoxCollider2D.GetComponent<CircleCollider2D>())
         {
             playerCanJump.GetComponent<CharacterMovement>().canJump = false;
             playerCanJump.GetComponent<CharacterMovement>().onAir = true;  

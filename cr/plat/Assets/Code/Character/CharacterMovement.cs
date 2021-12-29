@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
     public float reduce;
     [SerializeField] private Vector3 movement;
     [SerializeField] private Animator anim;
-    [SerializeField] BoxCollider2D capsule;
+    [SerializeField] CircleCollider2D capsule;
     [SerializeField] CapsuleCollider2D capsuleCol;
     [SerializeField] private float xDir;
     [SerializeField] private float yVel;
@@ -27,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
     {
         startPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        capsule = GetComponent<BoxCollider2D>();
+        capsule = GetComponent<CircleCollider2D>();
         capsuleCol = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         r = GetComponent<SpriteRenderer>();

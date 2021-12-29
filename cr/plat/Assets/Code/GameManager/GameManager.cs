@@ -8,10 +8,20 @@ public class GameManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject resume;
     public GameObject back;
+    [SerializeField] private bool c;
+    [SerializeField] private float speedDown;
+    [SerializeField] private float speedNormal;
+    [SerializeField] private float speedUp;
+    [SerializeField] public float timeUp=3;
+    [SerializeField] public float timeDown =0.5f;
     // Start is called before the first frame update
     void Start()
     {
         optionsMenu.SetActive(false);
+        speedNormal = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed;
+        speedDown = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed/3;
+        speedUp = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed*0.5f;
+        c = false;
     }
 
     // Update is called once per frame
@@ -32,17 +42,45 @@ public class GameManager : MonoBehaviour
             back.SetActive(true);
             Time.timeScale = 0;
         }
+        //TIME DOWN
         if(Input.GetKeyDown(KeyCode.E) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
         {
-            Time.timeScale = 3;
+            Time.timeScale = timeUp;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedDown;
+            c = true;
         }
         if(Input.GetKeyUp(KeyCode.E) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
         {
             Time.timeScale = 1;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
         }
         if(GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
         {
             Time.timeScale = 1;
+            if(c)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
+            }
+        }
+        // TIME UP
+        if(Input.GetKeyDown(KeyCode.Q) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
+        {
+            Time.timeScale = timeDown;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedUp;
+            c = true;
+        }
+        if(Input.GetKeyUp(KeyCode.Q) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
+        {
+            Time.timeScale = 1;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
+        }
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
+        {
+            Time.timeScale = 1;
+            if(c)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
+            }
         }
     }
 }
