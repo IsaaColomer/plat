@@ -32,11 +32,15 @@ public class GameManager : MonoBehaviour
             back.SetActive(true);
             Time.timeScale = 0;
         }
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
         {
             Time.timeScale = 3;
         }
-        if(Input.GetKeyUp(KeyCode.E))
+        if(Input.GetKeyUp(KeyCode.E) && !GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
+        {
+            Time.timeScale = 1;
+        }
+        if(GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().onAir)
         {
             Time.timeScale = 1;
         }
