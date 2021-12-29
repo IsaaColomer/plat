@@ -32,5 +32,13 @@ public class GameManager : MonoBehaviour
             back.SetActive(true);
             Time.timeScale = 0;
         }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Time.timeScale = 3;
+        }
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+            Time.timeScale = 1;
+        }
     }
 }
