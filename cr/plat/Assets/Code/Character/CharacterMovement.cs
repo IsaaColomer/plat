@@ -98,54 +98,29 @@ public class CharacterMovement : MonoBehaviour
                 anim.Play("running");
             }
             if(isOnPlatform())
-            {
-               
-                anim.Play("running");
-            }
-            
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            r.flipX = false;
-            if (!isGrounded())
-            {
-                if (rb.velocity.y > 0f)
-                {
-                    anim.Play("jump");
-                }
-                if (rb.velocity.y < 0f)
-                {
-                    anim.Play("fall");
-                }
-            }
-            if (!isOnPlatform())
-            {
-                if (rb.velocity.y > 0f)
-                {
-                    anim.Play("jump");
-                }
-                if (rb.velocity.y < 0f)
-                {
-                    anim.Play("fall");
-                }
-            }
-        }
-        if(Input.GetKey(KeyCode.A))
-        {
-            r.flipX = true;
-            if (isGrounded())
-            {
-                anim.Play("running");
-            }
-            if (isOnPlatform())
             {               
                 anim.Play("running");
             }
+            if(!isGrounded() && !isOnPlatform())
+            {
+                if (rb.velocity.y > 0f)
+                {
+                    anim.Play("jump");
+                }
+                if (rb.velocity.y < 0f)
+                {
+                    anim.Play("fall");
+                }
+            }
         }
         if(Input.GetKey(KeyCode.A))
         {
             r.flipX = true;
-            if (!isGrounded())
+            if (isGrounded() || isOnPlatform())
+            {
+                anim.Play("running");
+            }
+            if (!isGrounded() && !isOnPlatform())
             {
                 if (rb.velocity.y > 0f)
                 {
@@ -156,43 +131,10 @@ public class CharacterMovement : MonoBehaviour
                     anim.Play("fall");
                 }
             }
-            if (!isOnPlatform())
-            {
-                if (rb.velocity.y > 0f)
-                {
-                    anim.Play("jump");
-                }
-                if (rb.velocity.y < 0f)
-                {
-                    anim.Play("fall");
-                }
-            }
-        }
+        }     
         if(rb.velocity.y == 0)
         {
             jumpF = jumpFstart;
-        }
-        if(rb.velocity.y > 0)
-        {
-            if(!isOnPlatform())
-            {
-                anim.Play("jump");
-            }
-            if (!isGrounded())
-            {
-                anim.Play("jump");
-            }
-        }
-        if(rb.velocity.y < 0)
-        {
-            if (!isOnPlatform())
-            {
-                anim.Play("fall");
-            }
-            if (!isGrounded())
-            {
-                anim.Play("fall");
-            }
         }
         yVel = rb.velocity.y;
     }
