@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float startSpeed;     
     [SerializeField] private float jumpF2;
     [SerializeField] private float jumpFstart;
+    public Transform startPosition;
     public float jumpF;     
     public float reduce;
     [SerializeField] private Animator anim;
@@ -36,6 +37,7 @@ public class CharacterMovement : MonoBehaviour
         spee = speed/reduce;
         jumpF2 = jumpF*1.5f;
         jumpFstart = jumpF;
+        transform.position = startPosition.position;
     }
 
     // Update is called once per frame
