@@ -25,6 +25,7 @@ TagManager:
   - Stop
   - b
   - r
+  - GameManager
   layers:
   - Default
   - TransparentFX

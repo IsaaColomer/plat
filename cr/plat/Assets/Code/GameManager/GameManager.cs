@@ -83,4 +83,17 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public int CheckCheckPoints()
+    {
+        int first = 0;
+        for(int i = 0; i < GameObject.FindGameObjectsWithTag("CheckPoint").Length; i++)
+        {
+            if(!GameObject.FindGameObjectsWithTag("CheckPoint")[i].GetComponent<BoxCollider2D>().enabled)
+            {
+                first = i;
+            }
+        }
+
+        return first;
+    }
 }
