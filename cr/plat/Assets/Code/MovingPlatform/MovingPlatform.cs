@@ -15,6 +15,7 @@ public class MovingPlatform : MonoBehaviour
 
     // Update is called once per frame
     private bool dirRight = true;
+    private bool dirUp = true;
     public float speed = 2.0f;
 
     void Update()
@@ -24,14 +25,29 @@ public class MovingPlatform : MonoBehaviour
         else
             transform.Translate(-Vector2.right * speed * Time.deltaTime);
 
-        if (transform.position.x >= finish.position.x)
+
+        if (dirUp)
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
+        else
+            transform.Translate(-Vector2.up * speed * Time.deltaTime);
+
+        if ((transform.position.x >= finish.position.x))
         {
             dirRight = false;
         }
 
-        if (transform.position.x <= start.position.x)
+        if ((transform.position.x <= start.position.x))
         {
             dirRight = true;
+        }
+        if (transform.position.y >= finish.position.y)
+        {
+            dirUp = false;
+        }
+
+        if (transform.position.y <= start.position.y)
+        {
+            dirUp = true;
         }
         anim.Play("platform");
     }
