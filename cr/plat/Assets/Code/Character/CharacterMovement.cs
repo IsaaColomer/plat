@@ -37,14 +37,16 @@ public class CharacterMovement : MonoBehaviour
         spee = speed/reduce;
         jumpF2 = jumpF*1.5f;
         jumpFstart = jumpF;
-        //if(GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CheckCheckPoints() != 0)
-        //{
-        //    transform.position = GameObject.FindGameObjectsWithTag("CheckPoint")[GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CheckCheckPoints()].transform.position;
-        //}
-        //else
-        //{
-        //    transform.position = startPosition.position;
-        //}    
+        if (SaveManager.instance.hasLoaded)
+        {
+            transform.position = SaveManager.instance.activeSave.respawnPosition;
+
+        }
+        else
+        {
+            SaveManager.instance.activeSave.respawnPosition = startPosition.position;
+            transform.position = SaveManager.instance.activeSave.respawnPosition;
+        }    
     }
 
     // Update is called once per frame

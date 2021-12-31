@@ -34,6 +34,8 @@ public class FlagAnim : MonoBehaviour
         {
             anim.Play("touchd");
             touched = true;
+            SaveManager.instance.activeSave.respawnPosition = transform.position;
+            SaveManager.instance.Save();
             GetComponent<BoxCollider2D>().enabled = false;
         }
     }
