@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Transform start;
     [SerializeField] public int life;
+    [SerializeField] private int d;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +19,12 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         KnowLife();
+        GameObject.FindGameObjectWithTag("Deaths").GetComponent<Text>().text = d.ToString();
     }
     public void TakeDamage()
     {
         life--;
+        d++;
         Debug.Log("Lifes: " + life);
     }
     public void AddLife()
