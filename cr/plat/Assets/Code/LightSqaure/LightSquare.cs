@@ -30,4 +30,11 @@ public class LightSquare : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            transform.position = sP;
+        }
+    }
 }
