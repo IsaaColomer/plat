@@ -38,7 +38,7 @@ public class FlagAnim : MonoBehaviour
             SaveManager.instance.activeSave.time = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().p;
             SaveManager.instance.activeSave.deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().d;
             SaveManager.instance.Save();
-            GetComponent<BoxCollider2D>().enabled = false;
+            //GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

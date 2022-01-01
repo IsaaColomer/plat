@@ -19,11 +19,20 @@ public class Buttons : MonoBehaviour
     public void ToSceneIsaac()
     {
         SceneManager.LoadScene("Isaac");
+        GameObject.Find("SaveManager").GetComponent<SaveManager>().DeleteSaveData();
     }
     public void Load()
     {
-        SceneManager.LoadScene("Isaac");
-        GameObject.Find("SaveManager").GetComponent<SaveManager>().Load();
+        if(GameObject.Find("SaveManager").GetComponent<SaveManager>().activeSave.time != 0f)
+        {
+            SceneManager.LoadScene("Isaac");
+            GameObject.Find("SaveManager").GetComponent<SaveManager>().Load();
+        }
+        else
+        {
+            gameObject.active = false;
+        }
+        
     }
     public void OptionsAC()
     {

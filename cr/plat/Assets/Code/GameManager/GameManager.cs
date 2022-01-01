@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKey(KeyCode.F4))
         {
             Application.Quit();
         }
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("First");
         }
-        if(Input.GetKey(KeyCode.L))
+        if(Input.GetKey(KeyCode.Escape))
         {
             optionsMenu.SetActive(true);
             resume.SetActive(true);
