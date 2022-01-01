@@ -44,7 +44,6 @@ public class SaveManager : MonoBehaviour
             activeSave = serializer.Deserialize(stream) as SaveData;
             stream.Close();
             Debug.Log("Load function on the saveManager Called!");
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos = activeSave.respawnPosition;
             hasLoaded = true;
         }
     }
@@ -64,4 +63,6 @@ public class SaveData
 {
     public string saveName;
     public Vector3 respawnPosition;
+    public float time;
+    public int deaths;
 }

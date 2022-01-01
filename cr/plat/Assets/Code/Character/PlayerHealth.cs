@@ -7,12 +7,23 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Transform start;
     [SerializeField] public int life;
-    [SerializeField] private int d;
-    [SerializeField] private int p = 0;
+    [SerializeField] public int d = 0;
+    [SerializeField] public float p = 0;
     // Start is called before the first frame update
     void Start()
     {
         start = GameObject.FindGameObjectWithTag("Start").transform;
+        if(SaveManager.instance.hasLoaded)
+        {
+            p = SaveManager.instance.activeSave.time-20;
+            d = SaveManager.instance.activeSave.deaths;
+        }
+        else
+        {
+            SaveManager.instance.activeSave.time = p;
+            SaveManager.instance.activeSave.deaths = d;
+        }
+        
         life = 1;
     }
 
@@ -21,6 +32,16 @@ public class PlayerHealth : MonoBehaviour
     {
         KnowLife();
         GameObject.FindGameObjectWithTag("Deaths").GetComponent<Text>().text = d.ToString();
+        GameObject.FindGameObjectWithTag("Punt").GetComponent<Text>().text = p.ToString("F0");
+        if(p > 0)
+        {
+            p -= (Time.deltaTime * 0.85f);
+        }
+        if(p <= 0)
+        {
+            TakeDamage();
+            p = 100f;
+        }
     }
     public void TakeDamage()
     {
@@ -54,8 +75,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(other.tag == "Plus")
         {
-            p += 25;
-            GameObject.FindGameObjectWithTag("Punt").GetComponent<Text>().text = p.ToString();
+            p += 50f;
             Destroy(other.gameObject);
         }
     }

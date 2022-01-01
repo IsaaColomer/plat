@@ -20,6 +20,11 @@ public class Buttons : MonoBehaviour
     {
         SceneManager.LoadScene("Isaac");
     }
+    public void Load()
+    {
+        SceneManager.LoadScene("Isaac");
+        GameObject.Find("SaveManager").GetComponent<SaveManager>().Load();
+    }
     public void OptionsAC()
     {
         options.SetActive(true);
