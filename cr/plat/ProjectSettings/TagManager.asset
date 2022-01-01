@@ -28,6 +28,7 @@ TagManager:
   - GameManager
   - Deaths
   - Punt
+  - cat
   layers:
   - Default
   - TransparentFX
