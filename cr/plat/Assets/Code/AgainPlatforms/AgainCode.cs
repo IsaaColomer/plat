@@ -7,9 +7,9 @@ public class AgainCode : MonoBehaviour
     [SerializeField] private SpriteRenderer r;
     [SerializeField] private BoxCollider2D b;
     [SerializeField] private Color color;
-    [SerializeField] private float t1;
+    [SerializeField] private float t1;// tiempo que puedes estar encima la plataforma
     [SerializeField] private float t2;
-    [SerializeField] private float t3;
+    [SerializeField] private float t3;// tiempo para reiniciar
     [SerializeField] private float t4;
     [SerializeField] private bool startCount = false;
     [SerializeField] private bool startSecondCount = false;
@@ -30,7 +30,22 @@ public class AgainCode : MonoBehaviour
     {
         if(startCount)
         {
-            Count();
+            //Count();
+            if (t1 >= 1f)
+            {
+                startSecondCount = true;
+                b.enabled = false;
+            }
+            else
+            {
+                startSecondCount = false;
+                t1 += Time.deltaTime;
+            }
+
+            if (startSecondCount)
+            {
+                b.enabled = false;
+            }
         }
         if(!b.enabled)
         {
