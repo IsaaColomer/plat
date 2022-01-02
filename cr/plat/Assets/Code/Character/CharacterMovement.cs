@@ -95,11 +95,15 @@ public class CharacterMovement : MonoBehaviour
             }
             speed =  startSpeed;
         }
-        if(xDir == 0 && (!isGrounded() || !isOnPlatform()))
+        if(xDir == 0)
         {
-            anim.Play("idle");
+            if((isGrounded() || isOnPlatform()))
+            {
+                anim.Play("idle");
+            }
+            
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetAxis("Horizontal") > 0)
         {
             r.flipX = false;
             if (isGrounded())
@@ -122,7 +126,7 @@ public class CharacterMovement : MonoBehaviour
                 }
             }
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetAxis("Horizontal") < 0)
         {
             r.flipX = true;
             if (isGrounded() || isOnPlatform())
@@ -145,6 +149,19 @@ public class CharacterMovement : MonoBehaviour
         {
             jumpF = jumpFstart;
         }
+        if((Input.GetAxis("Horizontal") == 0))
+        {
+            if ((!isOnPlatform() && !isGrounded()))
+            {
+                if(rb.velocity.y < 0)
+                    anim.Play("fall");
+            
+                if (rb.velocity.y > 0)
+                {
+                    anim.Play("jump");
+                }
+            }
+        }       
         if(Input.GetKey(KeyCode.H))
         {
             if (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().CheckCheckPoints() != 0)

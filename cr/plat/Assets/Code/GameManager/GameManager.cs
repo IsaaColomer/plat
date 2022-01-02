@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("First");
         }
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetButton("Pause"))
         {
             optionsMenu.SetActive(true);
             resume.SetActive(true);
@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
         //TIME DOWN
-        if(Input.GetKeyDown(KeyCode.E) && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
+        if(Input.GetButton("Forward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
         {
             Time.timeScale = timeUp;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedDown;
             c = true;
         }
-        if(Input.GetKeyUp(KeyCode.E) && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
+        if(Input.GetButtonUp("Forward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
         {
             Time.timeScale = 1;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
@@ -63,13 +63,13 @@ public class GameManager : MonoBehaviour
             }
         }
         // TIME UP
-        if(Input.GetKeyDown(KeyCode.Q) && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
+        if(Input.GetButton("Backward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
         {
             Time.timeScale = timeDown;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedUp;
             c = true;
         }
-        if(Input.GetKeyUp(KeyCode.Q) && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
+        if(Input.GetButtonUp("Backward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
         {
             Time.timeScale = 1;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;

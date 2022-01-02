@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class OptionsMenu : MonoBehaviour
 {    
@@ -20,6 +21,17 @@ public class OptionsMenu : MonoBehaviour
         videosS.SetActive(false);
         creditsS.SetActive(false);
         resumeS.SetActive(true);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(resumeS);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(optionsS);
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +55,8 @@ public class OptionsMenu : MonoBehaviour
         {
             resumeS.SetActive(true);
         }
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(audioS);
     }
     public void BackClick()
     {
@@ -60,6 +74,8 @@ public class OptionsMenu : MonoBehaviour
         {
             resumeS.SetActive(true);
         }
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(backS);
         Time.timeScale = 1;
     }
     public void VideoClick()
@@ -77,7 +93,8 @@ public class OptionsMenu : MonoBehaviour
         {
             resumeS.SetActive(true);
         }
-        
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(videosS);
     }
     public void CreditsClick()
     {
@@ -94,6 +111,8 @@ public class OptionsMenu : MonoBehaviour
         {
             resumeS.SetActive(true);
         }
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsS);
     }
     public void ResumeClick()
     {
@@ -104,5 +123,7 @@ public class OptionsMenu : MonoBehaviour
         creditsS.SetActive(false);
         resumeS.SetActive(false);
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resumeS);
     }
 }
