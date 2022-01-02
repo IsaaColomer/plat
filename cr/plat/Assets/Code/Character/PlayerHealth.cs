@@ -76,7 +76,7 @@ public class PlayerHealth : MonoBehaviour
         if(other.tag == "Plus")
         {
             p += 50f;
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 }

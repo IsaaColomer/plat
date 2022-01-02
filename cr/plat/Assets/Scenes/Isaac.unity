@@ -2974,7 +2974,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7495,6 +7495,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2016178045}
     m_Modifications:
+    - target: {fileID: 189514221721099879, guid: 0075942154dca4f48a41d44c845ea869, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189514221721099879, guid: 0075942154dca4f48a41d44c845ea869, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 660369718178733285, guid: 0075942154dca4f48a41d44c845ea869, type: 3}
       propertyPath: rend.Array.data[0]
       value: 

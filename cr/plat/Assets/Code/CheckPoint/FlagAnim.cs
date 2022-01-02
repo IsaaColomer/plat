@@ -6,7 +6,7 @@ public class FlagAnim : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private float t = 0f;
-    [SerializeField] private bool touched = false;
+    [SerializeField] public bool touched = false;
     [SerializeField] public float done = 1f;
     
     // Start is called before the first frame update
@@ -32,7 +32,8 @@ public class FlagAnim : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            anim.Play("touchd");
+            if(!touched)
+                anim.Play("touchd");
             touched = true;
             SaveManager.instance.activeSave.respawnPosition = transform.position;
             SaveManager.instance.activeSave.time = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().p;

@@ -14,7 +14,7 @@ public class Fruit : MonoBehaviour
         int random = (int)Random.Range(0f,rnadomStart);
         selected = rend[random].sprite;
         p = GetComponent<ParticleSystem>();
-        p.Stop();
+        p.Pause();
         return selected;
     }
     // Start is called before the first frame update
@@ -23,12 +23,14 @@ public class Fruit : MonoBehaviour
         r = GetComponent<SpriteRenderer>();
         r.sprite = Result();
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private IEnumerator OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !p.isPlaying)
         {
             p.Play();
+            r.enabled = false;
+            yield return new WaitForSeconds(.5f);
+            Destroy(this.gameObject);
         }
     }
-
 }

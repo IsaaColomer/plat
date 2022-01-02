@@ -199,7 +199,8 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "CheckPoint")
         {
             startPos = other.transform.position;
-            GetComponent<PlayerHealth>().p += 20;
+            if(!other.GetComponent<FlagAnim>().touched)
+                GetComponent<PlayerHealth>().p += 20;
         }
         if(other.tag == "Double")
         {
