@@ -13,7 +13,7 @@ public class Fruit : MonoBehaviour
         float rnadomStart = rend.Length;
         int random = (int)Random.Range(0f,rnadomStart);
         selected = rend[random].sprite;
-        p = GetComponent<ParticleSystem>();
+
         p.Pause();
         return selected;
     }
@@ -21,6 +21,7 @@ public class Fruit : MonoBehaviour
     void Start()
     {
         r = GetComponent<SpriteRenderer>();
+        p = GetComponent<ParticleSystem>();
         r.sprite = Result();
     }
     private IEnumerator OnTriggerEnter2D(Collider2D other)
