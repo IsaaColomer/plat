@@ -103,7 +103,7 @@ public class CharacterMovement : MonoBehaviour
             }
             
         }
-        if(Input.GetAxis("Horizontal") > 0)
+        if(Input.GetAxis("Horizontal") > 0 && Time.timeScale != 0)
         {
             r.flipX = false;
             if (isGrounded())
@@ -126,7 +126,7 @@ public class CharacterMovement : MonoBehaviour
                 }
             }
         }
-        if(Input.GetAxis("Horizontal") < 0)
+        if(Input.GetAxis("Horizontal") < 0 && Time.timeScale != 0)
         {
             r.flipX = true;
             if (isGrounded() || isOnPlatform())
@@ -149,7 +149,7 @@ public class CharacterMovement : MonoBehaviour
         {
             jumpF = jumpFstart;
         }
-        if((Input.GetAxis("Horizontal") == 0))
+        if((Input.GetAxis("Horizontal") == 0) && Time.timeScale != 0)
         {
             if ((!isOnPlatform() && !isGrounded()))
             {
