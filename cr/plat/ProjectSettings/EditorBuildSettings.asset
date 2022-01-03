@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Isaac.unity
     guid: 7094c78333774c641a5fe608d911887a
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 8cc6ac66f42552248a0c6f557cf72e1d
   m_configObjects: {}
