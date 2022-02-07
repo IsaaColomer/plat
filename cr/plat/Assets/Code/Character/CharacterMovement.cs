@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    public float distance;
     private Rigidbody2D rb;
+    public BoxCollider2D left;
+    public BoxCollider2D right;
     public float speed;
     [SerializeField] private float spee;
     public LayerMask ground;
@@ -179,8 +182,10 @@ public class CharacterMovement : MonoBehaviour
     {
         float extraHText = 0.1f;
         RaycastHit2D raycasthit = Physics2D.Raycast(bc2d.bounds.center, Vector2.down, bc2d.bounds.extents.y+extraHText, ground);
+        RaycastHit2D raycasthit2 = Physics2D.Raycast(left.bounds.center, Vector2.down, left.bounds.extents.y+extraHText, ground);
+        RaycastHit2D raycasthit3 = Physics2D.Raycast(right.bounds.center, Vector2.down, right.bounds.extents.y+extraHText, ground);
         Color rayColor = Color.white;
-        if(raycasthit.collider != null)
+        if(raycasthit.collider != null || raycasthit2.collider != null || raycasthit3.collider != null)
         {
             rayColor = Color.green;
         }
@@ -189,12 +194,16 @@ public class CharacterMovement : MonoBehaviour
             rayColor = Color.red;
         }
         Debug.DrawRay(bc2d.bounds.center, Vector2.down * (bc2d.bounds.extents.y + extraHText), rayColor);
-        return raycasthit.collider != null;
+        Debug.DrawRay(left.bounds.center, Vector2.down * (left.bounds.extents.y+extraHText), rayColor);
+        Debug.DrawRay(right.bounds.center, Vector2.down * (right.bounds.extents.y+extraHText), rayColor);
+        return raycasthit.collider != null || raycasthit2.collider != null || raycasthit3.collider != null;
     }
     public bool isOnPlatform()
     {
         float extraHText = 0.1f;
         RaycastHit2D raycasthitp = Physics2D.Raycast(bc2d.bounds.center, Vector2.down, bc2d.bounds.extents.y + extraHText, platform);
+        RaycastHit2D raycasthit2 = Physics2D.Raycast(left.bounds.center, Vector2.down, left.bounds.extents.y+extraHText, platform);
+        RaycastHit2D raycasthit3 = Physics2D.Raycast(right.bounds.center, Vector2.down, right.bounds.extents.y+extraHText, platform);
         Color rayColor = Color.white;
         if (raycasthitp.collider != null)
         {
@@ -205,7 +214,9 @@ public class CharacterMovement : MonoBehaviour
             rayColor = Color.red;
         }
         Debug.DrawRay(bc2d.bounds.center, Vector2.down * (bc2d.bounds.extents.y + extraHText), rayColor);
-        return raycasthitp.collider != null;
+        Debug.DrawRay(left.bounds.center, Vector2.down * (extraHText), rayColor);
+        Debug.DrawRay(right.bounds.center, Vector2.down * (extraHText), rayColor);
+        return raycasthitp.collider != null || raycasthit2.collider != null || raycasthit3.collider != null;
     }
     void FixedUpdate() 
     {
