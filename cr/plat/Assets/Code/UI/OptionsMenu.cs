@@ -62,7 +62,7 @@ public class OptionsMenu : MonoBehaviour
     {
         optionsS.SetActive(false);
         audioS.SetActive(false);
-        backS.SetActive(false);
+        backS.SetActive(true);
         videosS.SetActive(false);
         creditsS.SetActive(false);
         resumeS.SetActive(false);
@@ -121,7 +121,7 @@ public class OptionsMenu : MonoBehaviour
         backS.SetActive(false);
         videosS.SetActive(false);
         creditsS.SetActive(false);
-        resumeS.SetActive(false);
+        resumeS.SetActive(true);
         Time.timeScale = 1;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(resumeS);
