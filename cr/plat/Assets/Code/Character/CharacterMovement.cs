@@ -24,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float xDir;
     [SerializeField] private float yVel;
     [SerializeField] public bool canJump = false;
+    [SerializeField] public bool canDoubleJump = false;
     [SerializeField] public Vector3 startPos;
     [SerializeField] public bool onAir;
     // Start is called before the first frame update
@@ -38,7 +39,6 @@ public class CharacterMovement : MonoBehaviour
         onAir = false;
         startSpeed = speed;
         spee = speed/reduce;
-        jumpF2 = jumpF*1.5f;
         jumpFstart = jumpF;
         if (SaveManager.instance.hasLoaded)
         {
@@ -73,9 +73,25 @@ public class CharacterMovement : MonoBehaviour
                 anim.Play("jump");
             }
         }
-        if(Input.GetButtonDown("Jump") && canJump)
+        if (!(isGrounded() || isOnPlatform()) && canDoubleJump)
         {
-            rb.AddForce(new Vector2(0f, jumpF));
+            if(Input.GetButtonDown("Jump"))
+            {
+                rb.AddForce(new Vector2(0f, jumpF2));
+                if (!isGrounded())
+                {
+                    anim.Play("jump");
+                }
+                if (!isOnPlatform())
+                {
+                    anim.Play("jump");
+                }
+                canDoubleJump = false;
+            }
+        }
+        if (Input.GetButtonDown("Jump") && canJump)
+        {
+            rb.AddForce(new Vector2(0f, jumpF*2));
             if (!isGrounded())
             {
                 anim.Play("jump");
@@ -105,6 +121,10 @@ public class CharacterMovement : MonoBehaviour
                 anim.Play("idle");
             }
             
+        }
+        if(isGrounded() ||isOnPlatform())
+        {
+            canDoubleJump = false;
         }
         if(Input.GetAxis("Horizontal") > 0 && Time.timeScale != 0)
         {
@@ -232,15 +252,13 @@ public class CharacterMovement : MonoBehaviour
         }
         if(other.tag == "Double")
         {
-            canJump = true;
-            jumpF = jumpF2;
+            canDoubleJump = true;
         }        
     }
     private void OnTriggerExit2D(Collider2D other) 
     {
         if(other.tag == "Double")
         {
-            canJump = false;
             jumpF = jumpFstart;
         }    
     }

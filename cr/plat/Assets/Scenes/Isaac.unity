@@ -2010,7 +2010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317947253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160, y: -0.10238, z: 21.2}
+  m_LocalPosition: {x: 159.5, y: 0.47, z: 21.2}
   m_LocalScale: {x: 377.3625, y: 131.84482, z: 36.246}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2941,7 +2941,7 @@ MonoBehaviour:
     m_Bits: 256
   r: {fileID: 0}
   startSpeed: 0
-  jumpF2: 0
+  jumpF2: 10000
   jumpFstart: 0
   startPosition: {fileID: 1360255176}
   jumpF: 7000
@@ -2951,6 +2951,7 @@ MonoBehaviour:
   xDir: 0
   yVel: 0
   canJump: 0
+  canDoubleJump: 0
   startPos: {x: 0, y: 0, z: 0}
   onAir: 0
 --- !u!61 &447443396
@@ -29252,7 +29253,7 @@ Transform:
   m_GameObject: {fileID: 1991871036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 148.8, y: -9.3, z: 0}
-  m_LocalScale: {x: 321.85004, y: 14.87, z: 1}
+  m_LocalScale: {x: 446.26517, y: 14.87, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16

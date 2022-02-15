@@ -63,17 +63,6 @@ public class GameManager : MonoBehaviour
             }
         }
         // TIME UP
-        if(Input.GetButton("Backward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
-        {
-            Time.timeScale = timeDown;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedUp;
-            c = true;
-        }
-        if(Input.GetButtonUp("Backward") && (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
-        {
-            Time.timeScale = 1;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = speedNormal;
-        }
         if(!(GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isGrounded() || GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().isOnPlatform()))
         {
             Time.timeScale = 1;
