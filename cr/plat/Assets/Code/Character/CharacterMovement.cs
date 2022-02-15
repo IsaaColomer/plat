@@ -274,8 +274,8 @@ public class CharacterMovement : MonoBehaviour
     {
         if(other.transform.tag == "Trap")
         {
-            GetComponent<PlayerHealth>().TakeDamage();
-            transform.position = startPos;
+            Time.timeScale = 0.1f;
+            StartCoroutine(Wait());
         }
     }
     private void OnCollisionExit2D(Collision2D other) 
@@ -286,5 +286,12 @@ public class CharacterMovement : MonoBehaviour
         //    onAir = true;
         //    canJump = false;
         //}
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(.05f);
+        transform.position = startPos;
+        Time.timeScale = 1;
+        GetComponent<PlayerHealth>().TakeDamage();
     }
 }

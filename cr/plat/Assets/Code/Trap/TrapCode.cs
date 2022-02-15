@@ -49,7 +49,7 @@ public class TrapCode : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().life--;
             GameObject.FindGameObjectWithTag("Lq").transform.position = GameObject.FindGameObjectWithTag("Lq").GetComponent<LightSquare>().sP;
 
-            GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
+            //GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
         }
     }
 }
