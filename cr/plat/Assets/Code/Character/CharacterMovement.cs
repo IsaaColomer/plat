@@ -17,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float jumpF2;
     [SerializeField] private float jumpFstart;
     public Transform startPosition;
+    public float d;
     public float jumpF;     
     public float reduce;
     [SerializeField] private Animator anim;
@@ -208,24 +209,32 @@ public class CharacterMovement : MonoBehaviour
     }
     public bool isOnPlatform()
     {
-        float extraHText = 0.1f;
+        float extraHText = d;
         RaycastHit2D raycasthitp = Physics2D.Raycast(bc2d.bounds.center, Vector2.down, bc2d.bounds.extents.y + extraHText, platform);
         RaycastHit2D raycasthit2 = Physics2D.Raycast(left.bounds.center, Vector2.down, left.bounds.extents.y+extraHText, platform);
         RaycastHit2D raycasthit3 = Physics2D.Raycast(right.bounds.center, Vector2.down, right.bounds.extents.y+extraHText, platform);
         Color rayColor = Color.white;
-        if (raycasthitp.collider != raycasthitp.collider.isTrigger)
+        if( raycasthitp.collider != null || raycasthit2.collider != null || raycasthit3.collider != null)
         {
-            rayColor = Color.green;
+            if(!raycasthitp.collider.isTrigger || !raycasthit2.collider.isTrigger || !raycasthit3.collider.isTrigger)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
-            rayColor = Color.red;
+            return false;
         }
+        Debug.Log(raycasthitp.collider.ToString());
+        Debug.Log(raycasthitp.collider.isTrigger.ToString());
         Debug.DrawRay(bc2d.bounds.center, Vector2.down * (bc2d.bounds.extents.y + extraHText), rayColor);
         Debug.DrawRay(left.bounds.center, Vector2.down * (extraHText), rayColor);
         Debug.DrawRay(right.bounds.center, Vector2.down * (extraHText), rayColor);
-        return raycasthitp.collider != raycasthitp.collider.isTrigger || raycasthit2.collider != raycasthit2.collider.isTrigger || raycasthit3.collider != raycasthit3.collider.isTrigger;
-
+        return true;
     }
     void FixedUpdate() 
     {

@@ -3030,6 +3030,7 @@ MonoBehaviour:
   jumpF2: 10000
   jumpFstart: 0
   startPosition: {fileID: 1360255176}
+  d: 0.05
   jumpF: 7000
   reduce: 1.45
   anim: {fileID: 0}
@@ -5383,33 +5384,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285283126}
     m_Modifications:
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.89723
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.688437
       objectReference: {fileID: 0}
     - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5454,14 +5431,6 @@ PrefabInstance:
     - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_Name
       value: p1 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
