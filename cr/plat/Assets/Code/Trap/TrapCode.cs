@@ -48,8 +48,6 @@ public class TrapCode : MonoBehaviour
             Debug.Log("Damage!");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().life--;
             GameObject.FindGameObjectWithTag("Lq").transform.position = GameObject.FindGameObjectWithTag("Lq").GetComponent<LightSquare>().sP;
-
-            //GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>().startPos;
         }
     }
 }

@@ -26,7 +26,7 @@ public class EachPlatform : MonoBehaviour
            r.color = color/10f;
        }
     }
-    void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Light" || other.tag == "Orb" || other.tag == "Lq")
         {

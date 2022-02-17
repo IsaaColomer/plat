@@ -213,7 +213,7 @@ public class CharacterMovement : MonoBehaviour
         RaycastHit2D raycasthit2 = Physics2D.Raycast(left.bounds.center, Vector2.down, left.bounds.extents.y+extraHText, platform);
         RaycastHit2D raycasthit3 = Physics2D.Raycast(right.bounds.center, Vector2.down, right.bounds.extents.y+extraHText, platform);
         Color rayColor = Color.white;
-        if (raycasthitp.collider != null)
+        if (raycasthitp.collider != raycasthitp.collider.isTrigger)
         {
             rayColor = Color.green;
         }

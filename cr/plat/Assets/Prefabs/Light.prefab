@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58284f4fdbe9a49479ce47411af805f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 0.4
+  rotSpeed: 0.7
   maxDistance: 10
   col: {fileID: 0}
   enableBoxCollider: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3768881538425308967}
   m_Layer: 0
   m_Name: S
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1355,33 +1355,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 285283126}
     m_Modifications:
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1084836523, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Direction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.89723
-      objectReference: {fileID: 0}
-    - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.688437
       objectReference: {fileID: 0}
     - target: {fileID: 2174422992881322504, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1426,14 +1402,6 @@ PrefabInstance:
     - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
       propertyPath: m_Name
       value: p1 (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3186106723607359999, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dbcb3ce2b63f704a9a1ef6b82c7c40b, type: 3}
@@ -2672,8 +2640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &412501844
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -5750,8 +5716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &921330157
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -7164,10 +7128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3768881537259410534, guid: 9b8eb46ee94655547800e7e10a762ff7, type: 3}
-      propertyPath: rotSpeed
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 3768881537259410535, guid: 9b8eb46ee94655547800e7e10a762ff7, type: 3}
       propertyPath: m_Name
       value: Light (1)
@@ -25601,8 +25561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!1001 &1400077525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27379,8 +27337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &1619177787
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -29622,8 +29578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &1987561758
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -30594,8 +30548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &2095578257
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -30970,8 +30922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90424512dddaed249a4d608b5c1fa0ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoxCollider2D: {fileID: 0}
-  playerCanJump: {fileID: 0}
 --- !u!66 &2116643021
 CompositeCollider2D:
   m_ObjectHideFlags: 0
