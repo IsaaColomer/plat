@@ -66,9 +66,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(life <= 0)
         {
-//            transform.position = GetComponent<CharacterMovement>().startPos;
             life = 1;
-            Debug.Log("Restarted");
         }
     }
     void OnTriggerEnter2D(Collider2D other) 

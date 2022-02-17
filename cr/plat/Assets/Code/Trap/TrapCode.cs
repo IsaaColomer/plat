@@ -45,9 +45,7 @@ public class TrapCode : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.transform.tag == "Player")
         {
-            Debug.Log("Damage!");
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().life--;
-            GameObject.FindGameObjectWithTag("Lq").transform.position = GameObject.FindGameObjectWithTag("Lq").GetComponent<LightSquare>().sP;
         }
     }
 }
