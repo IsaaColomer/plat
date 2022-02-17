@@ -270,7 +270,9 @@ public class CharacterMovement : MonoBehaviour
     {
         if(other.transform.tag == "Trap")
         {
-            Time.timeScale = 0.1f;
+            
+            Time.timeScale = 0.05f;
+            Debug.Log(Time.timeScale);
             StartCoroutine(Wait());
         }
     }
@@ -285,9 +287,10 @@ public class CharacterMovement : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(.05f);
+        yield return new WaitForSeconds(1f);
         transform.position = startPos;
-        Time.timeScale = 1;
         GetComponent<PlayerHealth>().TakeDamage();
+        Debug.Log("Done");
+        Time.timeScale = 1;
     }
 }
