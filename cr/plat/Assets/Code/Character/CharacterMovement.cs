@@ -225,6 +225,7 @@ public class CharacterMovement : MonoBehaviour
         Debug.DrawRay(left.bounds.center, Vector2.down * (extraHText), rayColor);
         Debug.DrawRay(right.bounds.center, Vector2.down * (extraHText), rayColor);
         return raycasthitp.collider != raycasthitp.collider.isTrigger || raycasthit2.collider != raycasthit2.collider.isTrigger || raycasthit3.collider != raycasthit3.collider.isTrigger;
+
     }
     void FixedUpdate() 
     {
@@ -235,8 +236,6 @@ public class CharacterMovement : MonoBehaviour
         if(other.tag == "CheckPoint")
         {
             startPos = other.transform.position;
-            if(!other.GetComponent<FlagAnim>().touched)
-                GetComponent<PlayerHealth>().p += 20;
         }
         if(other.tag == "Double")
         {
