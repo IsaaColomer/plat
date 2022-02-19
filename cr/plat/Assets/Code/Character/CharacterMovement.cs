@@ -5,6 +5,8 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float distance;
+    private AnimatorClipInfo[]  freezeAnimationArray;
+    private string  freezeAnimation;
     float time1 = 1f;
     float time2 = 1f;
     private Rigidbody2D rb;
@@ -15,7 +17,6 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask ground;
     public LayerMask platform;
     [SerializeField] private SpriteRenderer r;
-    public bool dead;
     public Vector3 deadPos;
     [SerializeField] private float startSpeed;     
     [SerializeField] private float jumpF2;
@@ -33,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] public bool canDoubleJump = false;
     [SerializeField] public Vector3 startPos;
     [SerializeField] public bool onAir;
+    [SerializeField] public bool dead;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,13 +65,10 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dead)
+        if(dead)
         {
-            rb.gravityScale = 0;
-        }
-        else
-        {
-            rb.gravityScale = gr;
+            transform.position = deadPos;
+            anim.Play(freezeAnimation);
         }
         if(Input.GetKey(KeyCode.R))
         {
@@ -254,21 +253,6 @@ public class CharacterMovement : MonoBehaviour
     void FixedUpdate() 
     {
         rb.velocity = new Vector2(xDir*Time.deltaTime, rb.velocity.y);
-        if (dead)
-        {
-            transform.position = deadPos;
-            if (time1 > 0)
-            {
-                time1 -= Time.deltaTime;
-                transform.position = deadPos;
-            }
-            else
-            {
-                time1 = time2;
-                dead = false;
-            }
-            Debug.Log(time1);
-        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -297,7 +281,11 @@ public class CharacterMovement : MonoBehaviour
         if(other.transform.tag == "Trap")
         {
             dead = true;
+            freezeAnimationArray = anim.GetCurrentAnimatorClipInfo(0);
+            freezeAnimation = freezeAnimationArray[0].clip.name;
             deadPos = transform.position;
+            StartCoroutine(Wait());
+
         }
     }
     private void OnCollisionExit2D(Collision2D other) 
@@ -306,6 +294,8 @@ public class CharacterMovement : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(.91f);
+        yield return new WaitForSeconds(.9f);
+        transform.position = startPos;
+        dead = false;
     }
 }
