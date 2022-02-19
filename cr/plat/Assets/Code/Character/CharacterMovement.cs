@@ -70,7 +70,9 @@ public class CharacterMovement : MonoBehaviour
             transform.position = deadPos;
             anim.Play(freezeAnimation);
         }
-        if(Input.GetKey(KeyCode.R))
+        if(!dead)
+        {
+ if(Input.GetKey(KeyCode.R))
         {
             transform.position = startPos;
             rb.velocity = Vector2.zero;
@@ -212,6 +214,8 @@ public class CharacterMovement : MonoBehaviour
             }
         }
         yVel = rb.velocity.y;
+        }
+       
     }
     public bool isGrounded()
     {
