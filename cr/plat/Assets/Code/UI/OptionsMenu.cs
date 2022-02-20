@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject videosS;
     public GameObject creditsS;
     public GameObject resumeS;
+    public GameObject drop;
+    public GameObject fs;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(false);
         backS.SetActive(true);
         videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
         creditsS.SetActive(false);
         resumeS.SetActive(true);
         if(SceneManager.GetActiveScene().ToString() == "Isaac")
@@ -37,7 +42,10 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKey(KeyCode.T))
+        {
+            Application.Quit();
+        }
     }
 
     public void AudioClick()
@@ -46,6 +54,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(true);
         backS.SetActive(true);
         videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
         creditsS.SetActive(false);
         if(SceneManager.GetActiveScene().ToString() == "Isaac")
         {
@@ -64,6 +74,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(false);
         backS.SetActive(true);
         videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
         creditsS.SetActive(false);
         resumeS.SetActive(false);
         if(SceneManager.GetActiveScene().ToString() == "Isaac")
@@ -84,6 +96,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(false);
         backS.SetActive(true);
         videosS.SetActive(true);
+        drop.SetActive(true);
+        fs.SetActive(true);
         creditsS.SetActive(false);
         if(SceneManager.GetActiveScene().ToString() == "Isaac")
         {
@@ -102,6 +116,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(false);
         backS.SetActive(true);
         videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
         creditsS.SetActive(true);
         if(SceneManager.GetActiveScene().ToString() == "Isaac")
         {
@@ -120,6 +136,8 @@ public class OptionsMenu : MonoBehaviour
         audioS.SetActive(false);
         backS.SetActive(false);
         videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
         creditsS.SetActive(false);
         resumeS.SetActive(true);
         Time.timeScale = 1;
