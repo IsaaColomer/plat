@@ -6,6 +6,11 @@ public class RespawnDetector : MonoBehaviour
 {
     [SerializeField] private Vector3 startPos;
     [SerializeField] private Rigidbody2D rb;
+    PlayerHealth health;
+    void Awake()
+    {
+        health = GetComponent<PlayerHealth>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +29,11 @@ public class RespawnDetector : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             transform.position = GetComponent<CharacterMovement>().startPos;
-            GetComponent<PlayerHealth>().TakeDamage();
+            StartCoroutine(Wait());
         }    
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(.3f);
     }
 }

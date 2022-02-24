@@ -289,7 +289,6 @@ public class CharacterMovement : MonoBehaviour
             freezeAnimation = freezeAnimationArray[0].clip.name;
             deadPos = transform.position;
             StartCoroutine(Wait());
-
         }
     }
     private void OnCollisionExit2D(Collision2D other) 
