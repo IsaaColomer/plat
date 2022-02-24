@@ -15,6 +15,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject resumeS;
     public GameObject drop;
     public GameObject fs;
+    public GameObject quit;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +43,27 @@ public class OptionsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.T))
+        if(Input.GetKey(KeyCode.Q))
         {
-            Application.Quit();
+            optionsS.SetActive(false);
+        audioS.SetActive(false);
+        backS.SetActive(true);
+        videosS.SetActive(false);
+        drop.SetActive(false);
+        fs.SetActive(false);
+        creditsS.SetActive(false);
+        resumeS.SetActive(false);
+        if(SceneManager.GetActiveScene().ToString() == "Isaac")
+        {
+            resumeS.SetActive(true);
+        }
+        else
+        {
+            resumeS.SetActive(true);
+        }
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(backS);
+        Time.timeScale = 1;
         }
     }
 
@@ -143,5 +162,9 @@ public class OptionsMenu : MonoBehaviour
         Time.timeScale = 1;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(resumeS);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
